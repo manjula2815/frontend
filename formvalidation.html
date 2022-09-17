@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="formvalidation.css" />
+    <!-- <style>
+      input:invalid {
+        border: 2px dashed red;
+      }
+      input:valid {
+        border: 2px solid black;
+      }
+      input:invalid:required{
+			background-image: linear-gradient(to right, lightpink, lightgreen);
+		}
+    </style> -->
+  </head>
+  <body>
+    <form>
+      <div>
+        <label for="choose">Name</label>
+        <input id="choose" name="myhob" required pattern="[Mm]anju|[Hh]ema" />
+      </div>
+    </form>
+
+    <form>
+      <fieldset>
+        <legend>Your activities<span aria-label="required">*</span></legend>
+
+        <label for="choose">What's your fav hobby?</label>
+        <input type="radio" required name="hobby" id="r1" value="bake" /><label
+          for="r1"
+          >Baking</label
+        >
+        <input type="radio" required name="hobby" id="r2" value="swim" /><label
+          for="r2"
+          >Swimming</label
+        >
+        <!-- <input type="text" id="choose" name="like" required maxlength="8" minlength="6"> -->
+
+        <div>
+          <label for="choose">Time spent for hobby in a day</label>
+          <input
+            type="number"
+            id="number"
+            name="amount"
+            required
+            value="1"
+            min="1"
+            maxlength="3"
+          />
+          <!-- step attribute<input type="date" min="2022-09-18" step="1"> -->
+        </div>
+
+        <div>
+          <label for="n1">Age:</label>
+          <!-- /d is a digit [0-9] and + means matches one or more digits-->
+          <input
+            type="number"
+            min="15"
+            max="100"
+            step="1"
+            id="n1"
+            name="age"
+            pattern="\d+"
+          />
+        </div>
+        <div>
+          <label for="t1"
+            >Choose your favourite dessert<span aria-label="required"
+              >*</span
+            ></label
+          >
+          <input
+            type="text"
+            id="t1"
+            name="dessert"
+            list="l1"
+            required
+            pattern="[Mm]uffins|[Cc]upcakes|[O]atmeal cookies|[Oo]range cookies|[Ll]emon pound"
+          />
+          <datalist id="l1">
+            <option>Muffins</option>
+            <option>Cupcakes</option>
+
+            <option>Oatmeal cookies</option>
+            <option>Orange cookies</option>
+            <option>Lemon pound</option>
+          </datalist>
+        </div>
+        <div>
+          <label for="e1">Email address</label>
+          <input
+            type="email"
+            id="e1"
+            name="email"
+            required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          />
+        </div>
+        <div>
+          <label for="p1"> Write some short message: </label>
+          <textarea id="p1" name="msg" maxlength="20" rows="2"> </textarea>
+        </div>
+        <div><button>submit</button></div>
+      </fieldset>
+    </form>
+  </body>
+</html>
